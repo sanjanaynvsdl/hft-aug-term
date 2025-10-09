@@ -3,20 +3,20 @@
 using namespace std;
 
 
-//Q: create sst, ssb student and write a function to accpet this obj and return the sum of their marks,
-//now, using the inheritance we create sst, ssb, 
+//Q: Create SST, SSB student and write a function to accept these objects and return the sum of their marks
+//Using inheritance, we can create SST, SSB 
 struct Student{
 
 
 };
 
-//but what if i was getting, im importing stuctrs from external librbary
-//how can we do this, -> we make use of generics, 
+//But what if I'm importing structs from an external library?
+//How can we do this? -> We use generics (templates) 
 
 
 
-//GENERICS 
-//Student -> can be a sst or ssb
+//GENERICS (TEMPLATES)
+//Student -> can be SST or SSB
 
 struct SST{
     string name{"sanjana"};
@@ -31,7 +31,6 @@ struct SSB{
 
 template<typename T>
 void calculateMarks(T student) {
-
     cout << student.marks <<endl;
 }
 
@@ -49,14 +48,14 @@ int main() {
     calculateMarks<SSB>(obj2);
 
 
-    //ex02
+    //Example 2
     int x=12;
     int* ptrX = &x;
     List<int*> list;
     
 
     int y=15;
-    // list.obj=&y; //below line even this does store the address
+    // list.obj=&y; //The line below also stores the address
     list.obj=ptrX; 
 
     cout << x << endl;       //12
@@ -68,7 +67,7 @@ int main() {
     List<int> other;
     other.obj=x;
 
-    cout << other.obj << endl; //12, since we defined as int as type we can only pass int, 
+    cout << other.obj << endl; //12, since we defined int as the type, we can only pass int 
 
     
 
@@ -76,7 +75,7 @@ int main() {
 
 
 /*
- IN java do generics get reolved at run time or compile time? -compile time
- IN the, cpp the generics are reolved at the run time, 
- refer templates.cpp file, the respective fucntions are created at the compile time, 
+ In Java, do generics get resolved at runtime or compile time? - Compile time (with type erasure at runtime)
+ In C++, generics (templates) are resolved at compile time
+ Refer to templates.cpp file - the respective functions are created at compile time
 */

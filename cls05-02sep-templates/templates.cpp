@@ -2,8 +2,6 @@
 using namespace std;
 
 template <typename XYZ>
-
-
 void Print(XYZ value) {
     cout << value << endl;
 

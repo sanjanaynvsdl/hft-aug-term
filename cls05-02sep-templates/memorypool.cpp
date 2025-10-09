@@ -3,10 +3,10 @@
 
 using namespace std;
 
-//Q: write a memory pool for the stack, because if need size less the 8mb
-//why would i even use heap
+//Q: Write a memory pool for the stack, because if we need size less than 8MB
+//why would we even use heap?
 
-const uint64_t SIZE = 1024 * 1024 * 2;
+const uint64_t SIZE = 1024 *16;  // 2MB
 
 struct MemoryPool{
     char buffer[SIZE];
@@ -18,8 +18,8 @@ struct MemoryPool{
             return nullptr;
         }
 
-        offset += bytesNeeded;
         void* ptrToOffset = reinterpret_cast<void*>(&(buffer[offset]));
+        offset += bytesNeeded;
         return ptrToOffset;
     }
 };
@@ -30,7 +30,7 @@ struct Box{
 };
 
 
-//as this memory pool can be used by any struct 
+//This memory pool can be used by any struct 
 int main() {
     MemoryPool mPool;
 
