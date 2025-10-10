@@ -13,17 +13,17 @@ int* f() {
 }
 
 int main() {
-    //memory of a program
-    /* there are two types of memory stack memory and heap memory
-    the memory which we can see andknow durin gcompilation could be a stack memory,
-    - understanding stack frames with example
+    // Memory of a program
+    /* There are two types of memory: stack memory and heap memory
+    The memory which we can see and know during compilation is stack memory
+    - Understanding stack frames with example
     */
 
-   //this we can say aorund 8bytes
+   // This we can say around 8 bytes
     int x=2;
     int z=2;
 
-    // but, this memeoy we will get to know on run-time
+    // But this memory we will get to know at run-time
     int arrLen;
     cin >> arrLen;
     int arr[arrLen];
@@ -36,29 +36,29 @@ int main() {
 
 
     /*
-    1. in RAM we have y=8
-    2. in RAm we agsint store address of y in ptrY
-    3. call fn pass ptrY
-    4. now, when we passed to fn, it's agins pass by value, 
-    5. creates anotehr ptrY whic points to Y;
-    6. and we are making this ptrY to point null;
-    
-    on mian fucniton ouput we saw the output as 8, becasue ptrY points to null not y
+    1. In RAM we have y=8
+    2. In RAM we again store address of y in ptrY
+    3. Call fn and pass ptrY
+    4. When we pass to fn, it's again pass by value
+    5. Creates another ptrY which points to Y
+    6. We are making this ptrY point to null
+
+    In main function output we saw the output as 8, because ptrY points to null not y
     */
 
 
     int* value  = f();
     // cout << "pointer address is : " x;
-    // cout << "value of is : " << *value; 
+    // cout << "value of is : " << *value;
     /*
-    - in the stack frame, first main goes then f()
-    - in f declares x, returs address since it's done, f() will completely vanish from memory
-    - now we only have a null ptr, 
-    - so warning " warning: address of local variable 'x' returned "
+    - In the stack frame, first main goes then f()
+    - In f declares x, returns address since it's done, f() will completely vanish from memory
+    - Now we only have a null ptr
+    - Warning: "address of local variable 'x' returned"
     */
 
 
     //------------------------------------------
-    // in cpp we do not have garbage colletor but destructor
+    // In C++ we do not have garbage collector but destructor
 
 }

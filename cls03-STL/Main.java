@@ -15,10 +15,10 @@ public class Main {
             block[128] = 99;
             block[block.length - 1] = i;
 
-            Thread.sleep(200);
+            // Thread.sleep(200);
         }
 
         System.out.println("Done allocating safely!");
-        Thread.sleep(5000); // so you can check with `top -pid <PID>`
+        // Thread.sleep(5000); // so you can check with `top -pid <PID>`
     }
 }

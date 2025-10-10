@@ -2,9 +2,9 @@
 using namespace std;
 
 
-//Whenever we create obj using new
-//- 1. it's dynamic memory
-//-2. in heap memoey
+// Whenever we create obj using new:
+// 1. It's dynamic memory
+// 2. In heap memory
 struct Student{
     int marks;
     string name;
@@ -14,21 +14,21 @@ struct Student{
         name=n;
     }
 
-    //this is destructor, when i create a instance of thisstruct,
-    //the destructor is being called, 
+    // This is destructor, when I create an instance of this struct,
+    // the destructor is being called 
     ~Student() {
         cout << name << " is getting deleted";
     }
 };
 
 void fn() {
-    //this doesnt' call the destructor
-    //cpp has doen't have a way to clear heap memory-> using new this is being storred, in heap memory
+    // This doesn't call the destructor
+    // C++ doesn't have a way to clear heap memory -> using new stores it in heap memory
     Student *st1 = new Student(100, "hello");
     Student *st2 = new Student(200, "hi");
 
 
-    //this calls destructor -> this is the stack memory
+    // This calls destructor -> this is stack memory
     // Student s1{100,"sanjana"};
     // Student s2{200, "ynvsdl"};
 }
@@ -41,7 +41,7 @@ int* fun() {
 }
 
 
-//dynamic arr, -> so this will work and store, 
+// Dynamic array - this will work and store
 int* inputFn(int n) {
     int arr[n]={12,13,15};
 
@@ -53,20 +53,18 @@ int main() {
 
     // int* arr = fun();
     // cout << arr[0] << endl;
-    //since this variables are local -> 
-    // warning: address of local variable 'arr' returned,
+    // Since these variables are local:
+    // warning: address of local variable 'arr' returned
 
 
     int size;
     // cin >> size;
-    // int* arr = inputFn(size); //even here i would get the, issue compiler issue
-    //if compiler is not there, there would be a dynamic allocation allocated to it, 
+    // int* arr = inputFn(size); // Even here I would get the compiler issue
+    // If compiler is not there, there would be dynamic allocation
     // cout << arr[0];
 
 
-    //Q- write a java code, to 
-    //which creates a rray of 1mb size 
-    //and 1million of those, 
+    // Q - Write a Java code which creates an array of 1MB size and 1 million of those 
 
 
     

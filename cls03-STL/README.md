@@ -1,32 +1,33 @@
-- Pointers continued + memoey management.
+# Pointers and Memory Management
+
+## Pointer Basics
 ```cpp
-int*ptrX = &x;
-
-//how do we access the value of x  -> this is also called dereference
-*ptrX;
-// - Little Endian and Big Endian
-// char[4] - this is in continuos memory, 
-char[4]= {0,1,2,3}
-// char is 1 Byte, so 4 Bytes means 32 bits
-
-now the array is stored in continuos memory
-
-char [4] = { (00000000),(00000001),(00000010), (00000011),}
-// ---------32------------------------------------------0 -> readingt from thr 32 big Endian
-//now all of this are 32 bits, the num of this by attaching this is-if bits stay togther 
-
-char [4] = { (00000000),(00000001),(00000010), (00000011),} 
-//x86 all this platforms use little Endion format, ite reads in reverse fasdhion
-//it reads per byte in the reverse fashion like 3-> 00000011 it reads 11000000
-
-//it returns like {3,2,1,0}
-
+int *ptrX = &x;  // Create pointer to variable x
+*ptrX;           // Access value through pointer (dereference)
 ```
 
-### code,
-- print a char array which prints 512
-512 -> 0001 0000 0000 now, this char array should be in reverse, for the CPU, 
+## Memory Storage Concepts
 
+### Little Endian vs Big Endian
+- **Big Endian**: Reads data from left to right (most significant byte first)
+- **Little Endian**: Reads data from right to left (least significant byte first)
+- **x86 platforms** use Little Endian format
 
+### Example with Char Array
+```cpp
+char array[4] = {0, 1, 2, 3};  // Each char is 1 byte (8 bits)
+// Total: 4 bytes = 32 bits stored in continuous memory
 
-### Arrays in c++
+// Binary representation:
+// {00000000, 00000001, 00000010, 00000011}
+
+// Little Endian reading (x86):
+// Reads as: {3, 2, 1, 0} - in reverse order
+```
+
+## Exercise
+- Print a char array that displays the number 512
+- 512 in binary: 0001 0000 0000
+- For CPU compatibility, store in reverse order
+
+## Arrays in C++

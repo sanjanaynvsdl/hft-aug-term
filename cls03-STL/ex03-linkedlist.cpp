@@ -1,9 +1,9 @@
 #include<iostream>
 using namespace std;
 
-//we know linked list in java, wt about 
+// We know linked list in Java, what about C++?
 /*
-- in cpp 
+- In C++
 
 1 --> 2 --> 3
 
@@ -12,12 +12,12 @@ class Node {
     Node next;
 }
 
-- in cpp if i make Node next, it creates a deep copy of 3 and adds
+- In C++ if I make Node next, it creates a deep copy of 3 and adds
 
 1 --> 2 --> 3
 
-3 -> threee present but still while adding it creates the deep copy
-- instead we can just simply store the address in the 
+3 is already present but while adding it creates a deep copy
+- Instead we can simply store the address
 struct Node {
     int data;
     Node* next;
@@ -27,9 +27,9 @@ struct Node {
 
 
 /*
-create a struct of order books,
--arrays of bids and asks, 
-- if a order is matched then remove those certain values, 
+Create a struct of order books:
+- Arrays of bids and asks
+- If an order is matched then remove those values
 */
 
 struct OrderBook{
@@ -39,8 +39,8 @@ struct OrderBook{
 
 void match(OrderBook ob) {
 
-    //pass by value so above obj will be copied and then
-    // we maniupulate that copy
+    // Pass by value so above obj will be copied and then
+    // we manipulate that copy
 
     for(int i=0;i<3;i++) {
         for(int j=0;j<3;j++) {
@@ -52,8 +52,7 @@ void match(OrderBook ob) {
     } 
 }
 
-//pointers we access the memebrs of pointers using
-// ob->
+// Pointers: we access the members of pointers using ob->
 void matchByPointers(OrderBook *ob) {
     for(int i=0;i<3;i++) {
         if(ob->asks[i]==ob->bids[i]) {
@@ -63,10 +62,10 @@ void matchByPointers(OrderBook *ob) {
     }
 }
 
-//match by ref, &ob is nothing but our direct orderbook 
-//behind the scenes it's just pointers operations only, 
-//Ampersand operator ( & )
-void matchByref(OrderBook &ob) {
+// Match by ref: &ob is our direct orderbook
+// Behind the scenes it's just pointer operations
+// Ampersand operator ( & )
+void matchByRef(OrderBook &ob) {
     for(int i=0;i<3;i++) {
         if(ob.asks[i]==ob.bids[i]) {
             ob.asks[i]=0;
@@ -86,23 +85,23 @@ int main() {
         cout << orderBook.asks[i]  << " ";
     };
 
-    
 
-    //the output will be still the same because, cpp is pass by value
-    //this makes the entier object copy and manipulates it, 
 
-    //to pass the pointer we use & and de-refernce it, 
+    // The output will still be the same because C++ is pass by value
+    // This makes the entire object copy and manipulates it
+
+    // To pass the pointer we use & and dereference it
     // matchByPointers(&orderBook);
-    matchByref(orderBook);
+    matchByRef(orderBook);
     cout << " passed by ref,orderbook array values are : " << endl;
     for(int i=0;i<3;i++) {
         cout << orderBook.asks[i]  << " ";
         cout << orderBook.bids[i] << endl;
     };
 
-    //now the actual obj is being manipulated, 
-    //this is just like hell, so to make the life easier we got the ref
-    //instead we just the take the input as same in the func(&ob)
+    // Now the actual obj is being manipulated
+    // Using pointers is complex, so to make life easier we use ref
+    // Instead we take the input the same way in the function
 
 
 
