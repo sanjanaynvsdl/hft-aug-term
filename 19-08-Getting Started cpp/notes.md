@@ -1,67 +1,51 @@
-HFT?
-- High frequency trading
-- what does this do?
-- Gold arbitrage -> Arbitrage two places having diff prizes, so we buy at a place where it is cheaper
-- sell at a place where it's higher, 
+# High Frequency Trading (HFT)
 
-### how does a real market work?
-order book has buyers and sellers
-1. buyers -> those who wanto buy at highest will be on top,
-2. sellers -> those who want to sell at low prize will be on top, 
-3. IN a market those who want to buy something will put a bid,
-- the buyers are called bidders
-- sellers are ask, 
+## What is HFT?
+High Frequency Trading uses algorithms to execute trades at extremely high speeds to profit from small price differences.
 
-### When the bids and asks, are equal a trade happens
-- so this is done by matching engine, 
-- why does this relate to hft are c++?
-- we can buy at a market where the same stocks are lesser and sell at a another market where it's higher
-- so thi sis what hft' firms does
-- we need to be fast, latency matters becuase we can trade with just a single click
-- there are alog's writtn to do this, 
+### Arbitrage Example
+- Buy assets at a lower price in one market
+- Sell them at a higher price in another market
+- Profit from the price difference
 
-- bids and asks whenever we have this, -> this is called market data
-------------- now, 
-1. we get the market data
-2. parse, and validate data
-3. sorting and the comparison
-4. our algo's
-5. then placing a order -> execution
+## How Markets Work
 
-- where do we get the market data from?
-- we connect via a web scoket
-- execution happens via a network
-- what should i have when i want to connect via web socket?
-- Internet, in a machine, any kind of network application use socket
-- network requests happens through socket/port
-- now this socket connects via web socket to an exchange
+### Order Book
+Markets have an order book with buyers and sellers:
+1. **Buyers (Bidders)** - Those willing to pay the highest price are at the top
+2. **Sellers (Asks)** - Those willing to sell at the lowest price are at the top
+3. **Trade Execution** - When bid and ask prices match, a trade happens via the matching engine
 
-- do we need a socket for executio?
-- exectution will be a network, this happens via socket right
+### Why C++ for HFT?
+- Speed is critical - latency matters when trades happen in milliseconds
+- HFT firms buy stocks where prices are lower and sell where they're higher
+- Algorithms are written to execute these trades automatically
 
------------------------------------------------
-- socket in java
-- what type of socket class we have in java?
-- write a dummy socket class
-- read data from a java socket, 
-- parse as string
-- and do million of this operation
-- we have socket in machine, nd we are reading million copies 
-- we have a socket object, this does nothing but, 
+## HFT Trading Pipeline
 
-- in the machine we have RAM and socket 
-- nd we have a CPU,(process)
-- now the procoess wants to read million entries from socket what it hsould do?
-- it will need to connect to socket parse data to RAM, from RAm we read it in our process, 
-- in socket obj we do obj.getData(); this returns some Bytes we parse or just print we do this a million time
+**Market Data** - Real-time bid and ask prices from exchanges
 
-- now when we run a spring application, - we see server is running on this PORt
-- port is nothing but, it is making us to connecto outside world, 
-- abstravtion of port is called socket
+1. Get market data
+2. Parse and validate data
+3. Sort and compare
+4. Run trading algorithms
+5. Execute orders
 
-- like when we say int a= 10; this cratres a 4-bytes in the RAm, but we do get direct;y from RAM
-- there is a layer of abstraction,n
-- socket is nothing but a obj which is gviing api's through a port
-- if we want to connect to a port we will do with a socket object, even for getData() we do on socket object
-- socket : a object used to access port -> port connects us to the outside world
-- every milli second market data changes,
+## Network Communication
+
+### Sockets
+- Market data comes from exchanges via WebSocket connections
+- Order execution also happens over the network
+- Sockets are objects that provide APIs to access ports
+- Ports connect applications to the outside world
+
+### How It Works
+1. Machine has RAM, CPU (process), and sockets
+2. Process reads data from socket into RAM
+3. Data is parsed and processed (done millions of times per second)
+4. Socket object provides methods like `getData()` to retrieve bytes
+
+### Abstraction Layer
+- Just like `int a = 10` creates a 4-byte variable in RAM with abstraction
+- Sockets provide an abstraction layer to access network ports
+- Market data changes every millisecond, requiring fast processing
